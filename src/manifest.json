@@ -1,0 +1,34 @@
+{
+  "manifest_version": 2,
+
+  "name": "TogglWeeklyTag",
+  "description": "Allows you to view the toggl weekly report by tag.",
+  "version": "0.1.0",
+  "author": "David Roberts (@davidroberts63)",
+  "homepage_url": "https://github.com/davidroberts63",
+  "content_scripts": [
+  {
+    "matches": ["https://www.toggl.com/app/*"],
+    "js": [
+      "startup.js",
+      "weeklybytag.js",
+      "html5tooltips.1.3.min.js"
+    ],
+    "css": [
+      "html5tooltips.css"
+    ]
+  }],
+
+  "permissions": ["webRequest", "webRequestBlocking", "https://www.toggl.com/"],
+
+  "background": {
+    "scripts": [ "background.js", "parseUri.js", "nanoajax.min.js" ],
+    "persistent": true
+  },
+
+  "icons": {
+	"16": "icon16.png",
+    "48": "icon48.png",
+    "128": "icon128.png"
+  }
+}
